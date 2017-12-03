@@ -1,6 +1,6 @@
 <?php
 
-ini_set('display_errors', 'Off');
+Ini_set('display_errors', 'Off');
 error_reporting(E_ALL);
 define('DATABASE', 'jm835');
 define('USERNAME', 'jm835');
