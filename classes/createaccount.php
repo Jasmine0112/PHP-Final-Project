@@ -1,31 +1,48 @@
+
 <?php
 
 /**
-* 
-*/
-class login extends page{
-	   public function _construct(){
-         
-          
-          $Firstname = '$_POST[FirstName]';
-          $Lastname = '$_POST[LastName]';          
-          $email_address = '$_POST[email]';
-          $password = '$_POST[pwd]';
-          $password_confirm = '$_POST[pwdconfirm]';
-          
-          if ($password==$password_confirm) {
-              $db = dbConn::getConnection();
-            # code...
-          }
-  
-    
 
-    }
+* 
+
+*/
+
+class createAcct extends page
+
+{
+
+	
+
+	function __construct(argument)
+
+	{
+
+	  	$usr = $_POST['email'];
+
+	    $pwd = $_POST['pwd'];
+
+	    $usr == $username && $psw == $password session_start(); 
+
+	    if ($_SESSION['login']==true || ($usr=="admin" && $pwd=="password")) {  
+
+	    	$_SESSION['login']=true;
+
+	    	$_SESSION['usr']=$usr;
+
+	    	$db = $dbConn:getConnection();
+
+	    	header('location: index.php?page=todos');
+
+	    }
+
+	    else { 
+
+	    	header('location: index.php?page=login');
+
+	    }
+
+	}
 
 }
-
-
-
-
 
 ?>
